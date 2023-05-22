@@ -1,0 +1,47 @@
+body{
+    text-align: center;
+    background: lightskyblue;
+    /* color: white; */
+}
+header{
+    text-align: left;
+    margin-left: 180px;
+    color:purple;
+}
+#contain{
+    margin-top: 15rem;
+}
+#button{
+    width: 167px;
+    height: 50px;
+    border-radius: 25px;
+    border: 1px solid  rgb(148, 76, 215);
+    background-color: rgb(148, 76, 215);
+    color: white;
+}
+#cycle{
+    background: rgb(196, 177, 211);
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-left: 450px;
+    margin-top: 30px;
+}
+#cycle2{
+    background: lightblue;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-left: 240px;
+    position: relative;
+    bottom: 140px;
+}
+#cycle3{
+    background: rgb(196, 177, 211);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    bottom: 430px;
+    left: 199px;
+}
