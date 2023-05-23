@@ -1,86 +1,62 @@
 // Define an empty array to hold and store each contact information object;
 
-let contactList = [];
+let contactDataBase = [];
 
 // Define an object constructor for contacts information;
 
-class Contact {
-    constructor(firstName, lastName, phoneNumber, email, city, career) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.city = city;
-        this.career = career;
-    }
+function Contact(firstname, lastname, phonenumber, ctemail, ctcity, ctcareer) {
+    this.firstName = firstname;
+    this.lastName = lastname;
+    this.phone = phonenumber;
+    this.email = ctemail;
+    this.city = ctcity;
+    this.career = ctcareer;
 }
 
 
 // Define a function to collect contact and store contact information; collect information from form input;
 
-function contactInfo() {
-    let fName = document.getElementById("firstName").value;
-    let lName = document.getElementById("lastName").value;
-    let phone = document.getElementById("phoneNumber").value;
-    let email = document.getElementById("email").value;
-    let city = document.getElementById("city").value;
-    let career = document.getElementById("career").value;
+function creatObj() {
+    let fname = document.querySelector('#firstName').value;
+    let lname = document.querySelector('#lastName').value;
+    let phone = document.querySelector('#phoneNumber').value;
+    let email = document.querySelector('#email').value;
+    let city = document.querySelector('#city').value;
+    let career = document.querySelector('#career').value;
 
-    // Define myContact to store the value from form;
-    const myContactObj = new Contact (fName, lName, phone, email, city, career);
-
-    return myContactObj;
+    let contactObj = new Contact(fname, lname, phone, email, city, career);
+    return contactObj;
 }
 
 
 // store contactList in local storage;
 
-function storeData(myContactObj) {
-
+function storeData(contactObj) {
     // check if local storage is empty
-
-    if (localStorage.getItem('contactData') === null) {
-
+    if (localStorage.getItem('contactsData') === null) {
         // add data to local storage
-        localStorage.setItem('contactData', JSON.stringify(contactList));
-
+        localStorage.setItem('contactsData', JSON.stringify(contactDataBase));
     } else {
-
         // get data from local storage
-
-        const contactData = JSON.parse(localStorage.getItem('contactData'));
-
+        const contactsData = JSON.parse(localStorage.getItem('contactsData'));
         // add data to local storage
-
-        contactData.push(myContactObj);
-
-        localStorage.setItem('contactData', JSON.stringify(contactData));
+        contactsData.push(contactObj);
+        localStorage.setItem('contactsData', JSON.stringify(contactsData));
     }
 };
 
 // submitting the contact form;
 
-function submitForm (event) {
-
+form.addEventListener('submit', function (event) {
     event.preventDefault();
-
-    // store the contactInfo function in a variable;
-
-    const newContact = contactInfo();
-    
-    // add and push the newContact to the contactList array;
-
-    contactList.push(newContact);
-
+        // store the contactInfo function in a variable;
+    const newContact = creatObj();
+     // add and push the newContact to the contactList array;
+    contactDataBase.push(newContact);
     // store data in local storage
-
     storeData(newContact);
-
-    console.log(contactList);
-    
+    console.log(contactDataBase);
     // function to clear form
     form.reset();
-}
-
-form.addEventListener('submit', submitForm);
+});
 

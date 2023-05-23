@@ -96,6 +96,11 @@ header a h2{
     border-radius: 20px;
 }
 
+#Contact-list{
+    margin-top: 80px;
+    margin-left: 68px;
+}
+
 #firstName,#lastName,#phoneNumber,#email,#city,#career {
     width: 300px;
     outline: none;
